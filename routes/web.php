@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('principal');
+//    return view('welcome');
 });
+
+Route::post('procesar', function (Request $solicitud){
+    //echo "dependiendo el idioma asi te saludaré";
+    $lenguaje = $solicitud->input('idioma');
+    //dump($lenguaje);
+    switch ($lenguaje) {
+        case 'español':
+            return view('saludos.español');
+            break;
+        case 'frances':
+            return view('saludos.frances');
+            break;
+        case 'italiano':
+            return view('saludos.italiano');
+            break;
+        default:
+            echo "Disculpa ese idioma no lo hablo.";
+            break;
+    }
+})->name('otro');
+
+
+Route::get('saludar/{nombre}', function ( $nombre){
+    return view('saludos.español',compact('nombre'));
+})->name('r1');
+Route::get('salutare/{nombre}', function ($nombre){
+    return view('saludos.italiano')->with('nombre',$nombre);
+})->name('r2');
+Route::get('saluer/{nombre?}', function ($nombre= null){
+    return view('saludos.frances',['nombre' => $nombre]);
+})->name('r3');
