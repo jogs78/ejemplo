@@ -30,4 +30,4 @@ Route::post('procesar',[IdiomaControler::class, 'procesar'])->name("procesar");
 Route::get('saludar',[IdiomaControler::class, 'saludar'])->name("saludar")->middleware("checaridioma");
 Route::get('despedir',[IdiomaControler::class, 'despedir'])->name("despedir")->middleware("checaridioma");
 
-Route::get('salir',[SistemaController::class, 'salir'])->name('salir');
+Route::get('salir',[SistemaController::class, 'salir'])->name('salida');

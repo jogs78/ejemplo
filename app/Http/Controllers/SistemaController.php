@@ -29,8 +29,9 @@ class SistemaController extends Controller
 
     }
     public function salir(Request $solicitud){
+        dump("adios");
         Session::forget('idioma');
         Session::flush();
-        return redirect("login");
+//        return redirect("login");
     }
 }
