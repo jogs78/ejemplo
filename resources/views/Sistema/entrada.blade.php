@@ -24,7 +24,7 @@
             </div>
             <div class="items">
                 <span class="icono material-symbols-rounded">lock</span>
-                <input class="cajas" name="contraseña" type="password" placeholder="Contraseña">
+                <input class="cajas" name="password" type="text" placeholder="Contraseña">
             </div>
             <div class="items">
                 <input class="boton" type="submit" value="Validar">
