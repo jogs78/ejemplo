@@ -31,9 +31,9 @@ class Paquete
             return null;
         }
     }
-    static public function delete($id){
+    public function delete(){
         $arreglo = session('arreglo', []);
-        unset($arreglo[$id]);
+        unset($arreglo[$this->id]);
         session(['arreglo'=>$arreglo]);
     }
 }

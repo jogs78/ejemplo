@@ -16,7 +16,15 @@
                 <tr>
                     <td>{{$clave}}</td>
                     <td>{{$valor}}</td>
-                    <td> <a href="{{route('paquetes.edit',$clave)}}">ACTUALIZAR</a>  BORRAR </td>
+                    <td>
+                        <a href="{{route('paquetes.edit',$clave)}}">ACTUALIZAR</a>
+                        <form action="{{route('paquetes.destroy', $clave)}}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <input type="submit" value="BORRAR">
+                        </form>
+                        
+                     </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -40,3 +40,6 @@ Route::get('crearpaquete',[PaqueteController::class, 'create'])->name('paquetes.
 Route::post('guardar',[PaqueteController::class, 'store'])->name('paquetes.store');
 Route::get('actualizar/{cual?}',[PaqueteController::class, 'edit'])->name('paquetes.edit');
 Route::put('actualizar/{cual?}',[PaqueteController::class, 'update'])->name('paquetes.update');
+Route::delete('borrar/{cual?}',[PaqueteController::class, 'destroy'])->name('paquetes.destroy');
+
+Route::resource('servicios', PaqueteController::class);

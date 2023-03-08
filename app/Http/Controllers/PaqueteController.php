@@ -66,7 +66,7 @@ class PaqueteController extends Controller
     public function edit($id)
     {
 
-        echo "MODIFICAR EL : $id";
+        //echo "MODIFICAR EL : $id";
         $paquete_encontrado = Paquete::find($id);
         return view('paquetes.edit', compact('paquete_encontrado'));
         //
@@ -82,6 +82,13 @@ class PaqueteController extends Controller
     public function update(Request $request, $id)
     {
         echo "ACUTALIZAR EL $id";
+        //$nuevo = new Paquete();
+        $paquete_encontrado = Paquete::find($id);
+        $paquete_encontrado->id = $request->input('id');
+        $paquete_encontrado->nombre = $request->input('nombre');
+        $paquete_encontrado->save();
+        return redirect(route('paquetes.index'));
+
     }
 
     /**
@@ -92,6 +99,9 @@ class PaqueteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //echo "borrar el $id";
+        $paquete_encontrado = Paquete::find($id);
+        $paquete_encontrado->delete();
+        return redirect(route('paquetes.index'));
     }
 }
