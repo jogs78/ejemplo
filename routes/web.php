@@ -22,17 +22,17 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('login',[SistemaController::class,'entrada'])->name("login");
-Route::post('validar',[SistemaController::class, 'validar'])->name('validar');
-Route::get('ropciones',[SistemaController::class, 'mopciones'])->name('nopciones');
+Route::get('login', [SistemaController::class, 'entrada'])->name("login");
+Route::post('validar', [SistemaController::class, 'validar'])->name('validar');
+Route::get('ropciones', [SistemaController::class, 'mopciones'])->name('nopciones');
 
-Route::get('seleccionar',[IdiomaControler::class, 'seleccionar'])->name("seleccionar");
-Route::post('procesar',[IdiomaControler::class, 'procesar'])->name("procesar");
+Route::get('seleccionar', [IdiomaControler::class, 'seleccionar'])->name("seleccionar");
+Route::post('procesar', [IdiomaControler::class, 'procesar'])->name("procesar");
 
-Route::get('saludar',[IdiomaControler::class, 'saludar'])->name("saludar")->middleware("checaridioma");
-Route::get('despedir',[IdiomaControler::class, 'despedir'])->name("despedir")->middleware("checaridioma");
+Route::get('saludar', [IdiomaControler::class, 'saludar'])->name("saludar")->middleware("checaridioma");
+Route::get('despedir', [IdiomaControler::class, 'despedir'])->name("despedir")->middleware("checaridioma");
 
-Route::get('salir',[SistemaController::class, 'salir'])->name('salida');
+Route::get('salir', [SistemaController::class, 'salir'])->name('salida');
 
 
 Route::get('paquetes',[PaqueteController::class, 'index'])->name('paquetes.index');
@@ -41,5 +41,5 @@ Route::post('guardar',[PaqueteController::class, 'store'])->name('paquetes.store
 Route::get('actualizar/{cual?}',[PaqueteController::class, 'edit'])->name('paquetes.edit');
 Route::put('actualizar/{cual?}',[PaqueteController::class, 'update'])->name('paquetes.update');
 Route::delete('borrar/{cual?}',[PaqueteController::class, 'destroy'])->name('paquetes.destroy');
-//comentarios jorge octavio guzman
+//comentarios xxxxxxxxx
 Route::resource('servicios', PaqueteController::class);
